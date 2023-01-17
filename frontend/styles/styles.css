@@ -83,3 +83,11 @@ ul, form {
 .todo:hover {
   cursor: pointer;
 }
+
+.li {
+  text-decoration: none;
+}
+
+.li-completed {
+  text-decoration: line-through;
+}
