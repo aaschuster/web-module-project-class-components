@@ -44,17 +44,16 @@ export default class App extends React.Component {
     }
 
     const clearCompleted = () => {
-      const newList = [];
-      this.state.list.map( li => {
+      const newList = this.state.list.filter( li => {
         if(!(li.completed)) return li;
       })
-      console.log(newList);
+      this.setState({list: newList});
     }
 
     return (
       <div>
         <TodoList list={this.state.list} liClick={liClick}/>
-        <Form form={this.state.form} onChange={onChange} onSubmit={onSubmit}/>
+        <Form form={this.state.form} onChange={onChange} onSubmit={onSubmit} clearCompleted={clearCompleted}/>
       </div>
     )
   }

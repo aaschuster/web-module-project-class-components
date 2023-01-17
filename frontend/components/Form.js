@@ -8,7 +8,7 @@ export default class Form extends React.Component {
 
   render() {
 
-    const {form, onChange, onSubmit} = this.props;
+    const {form, onChange, onSubmit, clearCompleted} = this.props;
 
     return (
       <div>
@@ -16,7 +16,7 @@ export default class Form extends React.Component {
           <input type="text" placeholder='Enter todo' value={form} onChange={onChange}/>
           <button>Submit</button>
         </form>
-        <button>Clear completed</button>
+        <button onClick={clearCompleted}>Clear completed</button>
       </div>
     )
   }
