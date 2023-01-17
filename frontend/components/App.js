@@ -15,8 +15,7 @@ export default class App extends React.Component {
     super();
     this.state = {
       list: initList,
-      form: "",
-      hiding: false
+      form: ""
     }
   }
 
@@ -44,14 +43,18 @@ export default class App extends React.Component {
       }
     }
 
-    const toggleHiding = () => {
-      this.setState({hiding: !this.state.hiding});
+    const clearCompleted = () => {
+      const newList = [];
+      this.state.list.map( li => {
+        if(!(li.completed)) return li;
+      })
+      console.log(newList);
     }
 
     return (
       <div>
-        <TodoList list={this.state.list} liClick={liClick} hiding={this.state.hiding}/>
-        <Form form={this.state.form} onChange={onChange} onSubmit={onSubmit} toggleHiding={toggleHiding} hiding={this.state.hiding}/>
+        <TodoList list={this.state.list} liClick={liClick}/>
+        <Form form={this.state.form} onChange={onChange} onSubmit={onSubmit}/>
       </div>
     )
   }

@@ -11,13 +11,11 @@ export default class TodoList extends React.Component {
 
   render() {
 
-    const {list, liClick, hiding} = this.props;
+    const {list, liClick} = this.props;
     
     return (
       <div>
-        {list.map(li => {
-          if(!(hiding&&li.completed)) return <Todo li={li} key={li.id} onClick={liClick}/>})
-        }
+        {list.map(li => {return <Todo li={li} key={li.id} onClick={liClick}/>})}
       </div>
     )
     }
